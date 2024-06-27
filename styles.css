@@ -8,7 +8,7 @@ body {
 
 .navbar {
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
     background-color: #222; /* Darker background for the navbar */
@@ -19,6 +19,7 @@ body {
     list-style: none;
     padding: 0;
     display: flex;
+    margin: 0; /* Remove any default margin */
 }
 
 .nav-links li {
@@ -28,6 +29,7 @@ body {
 .nav-links a {
     text-decoration: none;
     transition: color 0.2s ease;
+    color: inherit; /* Ensure links inherit color */
 }
 
 #theme-toggle {
@@ -166,3 +168,4 @@ body.light-mode {
 .coming-soon-container p {
     font-size: 1.5em; /* Slightly larger text for the message */
 }
+
