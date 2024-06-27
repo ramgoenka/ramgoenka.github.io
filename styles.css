@@ -6,27 +6,19 @@ body {
     transition: background-color 0.2s, color 0.2s;
 }
 
-nav {
+.navbar {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     padding: 10px 20px;
+    background-color: #222; /* Darker background for the navbar */
     transition: background-color 0.2s;
-}
-
-.about-container, .experience-container {
-    max-width: 570px;
-    margin: 50px auto;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    transition: background-color 0.2s, color 0.2s;
 }
 
 .nav-links {
     list-style: none;
     padding: 0;
     display: flex;
-    margin-left: auto; /* Pushes the nav to the right */
 }
 
 .nav-links li {
@@ -43,9 +35,17 @@ nav {
     border: none;
     font-size: 24px;
     cursor: pointer;
+    margin-left: auto;
     transition: color 0.2s ease;
 }
 
+.about-container, .experience-container {
+    max-width: 570px;
+    margin: 50px auto;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    transition: background-color 0.2s, color 0.2s;
+}
 
 h1, h2 {
     margin: 0;
@@ -74,9 +74,8 @@ body.dark-mode {
     color: #fff;
 }
 
-.dark-mode nav {
-    background-color: #333;
-    color: #fff;
+.dark-mode .navbar {
+    background-color: #1a1a1a; /* Darker navbar color */
 }
 
 .dark-mode .nav-links a, .dark-mode #theme-toggle {
@@ -98,9 +97,8 @@ body.light-mode {
     color: #333;
 }
 
-.light-mode nav {
-    background-color: #f8f9fa;
-    color: #333;
+.light-mode .navbar {
+    background-color: #e0e0e0; /* Darker navbar color in light mode */
 }
 
 .light-mode .nav-links a, .light-mode #theme-toggle {
@@ -140,7 +138,6 @@ body.light-mode {
     background-color: #fff; /* Same as About container in light mode */
     color: #333; /* Same text color as About container */
 }
-
 
 /* Direct child list items within experience-container */
 .experience-container > ul > li {
