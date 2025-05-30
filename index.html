@@ -3,47 +3,278 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me</title>
-    <!-- Font Awesome CDN link -->
+    <title>Ram Goenka</title>
+    <link rel="icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: #2c2c2c;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        .header {
+            background-color: #333333;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            border-bottom: 1px solid #444;
+        }
+
+        .header h1 {
+            font-size: 1.1em;
+            font-weight: 500;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            color: #ffffff;
+            font-size: 1.8em;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 3px;
+            transition: background-color 0.2s;
+        }
+
+        .theme-toggle:hover {
+            background-color: #444;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .profile-section {
+            margin-bottom: 40px;
+        }
+
+        .profile-info h1 {
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .profile-details {
+            margin-bottom: 20px;
+        }
+
+        .profile-details p {
+            margin-bottom: 8px;
+            color: #ccc;
+            font-size: 0.95em;
+        }
+
+        .profile-details i {
+            width: 20px;
+            color: #888;
+            margin-right: 8px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .social-links a {
+            color: #ccc;
+            font-size: 1.1em;
+            transition: color 0.2s;
+        }
+
+        .social-links a:hover {
+            color: #4a9eff;
+        }
+
+        .about-section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 1.5em;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        .about-text {
+            font-size: 1em;
+            color: #ddd;
+            margin-bottom: 15px;
+        }
+
+        .about-text a {
+            color: #4a9eff;
+            text-decoration: none;
+        }
+
+        .about-text a:hover {
+            text-decoration: underline;
+        }
+
+        .publications-section {
+            margin-bottom: 40px;
+        }
+
+        .publication {
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #444;
+        }
+
+        .publication:last-child {
+            border-bottom: none;
+        }
+
+        .publication-title {
+            font-size: 1.1em;
+            font-weight: 500;
+            margin-bottom: 5px;
+            color: #ffffff;
+        }
+
+        .publication-title a {
+            color: #4a9eff;
+            text-decoration: none;
+        }
+
+        .publication-title a:hover {
+            text-decoration: underline;
+        }
+
+        .publication-authors {
+            color: #ccc;
+            margin-bottom: 3px;
+            font-size: 0.95em;
+        }
+
+        .publication-details {
+            color: #aaa;
+            font-size: 0.9em;
+        }
+
+        .cv-link {
+            color: #4a9eff;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .cv-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Light mode styles */
+        body.light-mode {
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        .light-mode .header {
+            background-color: #ffffff;
+            color: #333;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .light-mode .theme-toggle {
+            color: #333;
+        }
+
+        .light-mode .theme-toggle:hover {
+            background-color: #f0f0f0;
+        }
+
+        .light-mode .profile-details p {
+            color: #666;
+        }
+
+        .light-mode .profile-details i {
+            color: #888;
+        }
+
+        .light-mode .social-links a {
+            color: #666;
+        }
+
+        .light-mode .about-text {
+            color: #444;
+        }
+
+        .light-mode .publication {
+            border-bottom-color: #ddd;
+        }
+
+        .light-mode .publication-authors {
+            color: #666;
+        }
+
+        .light-mode .publication-details {
+            color: #777;
+        }
+
+        .light-mode .section-title {
+            color: #333;
+        }
+
+        .light-mode .publication-title {
+            color: #333;
+        }
+    </style>
 </head>
 <body class="dark-mode">
-    <header>
-        <nav class="navbar">
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="Ram_Goenka_Resume.pdf" target="_blank">Resume</a></li>
-                <li><a href="Ram_Goenka_CV.pdf" target="_blank">CV</a></li>
-                <!--li><a href="blog.html">Blog</a></li-->
-            </ul>
-            <button id="theme-toggle">
-                🌜 <!-- Moon emoji -->
-            </button>
-        </nav>
+    <header class="header">
+        <button class="theme-toggle" id="theme-toggle">🌜</button>
     </header>
-    <section id="about" class="about-container">
-        <h1>Hi, I am Ram.</h1>
-        <hr>
-        <p>I am a senior at the University of Illinois Urbana-Champaign (double) majoring in Mathematics & Statistics and minoring in Computer Science. I am currently working with Professor Rebecca Lee Smith at the National Center for Supercomputing Applications on projects involving mathematical and statistical modeling for vector borne diseases (primarily focusing on the West Nile Virus), funded by the Center for Disease Control. I am interested in stochastic processes and statistical learning.</p>
-        <hr>
-        <div class="social-links">
-            <!-- LinkedIn -->
-            <a href="https://www.linkedin.com/in/ram-goenka" target="_blank" class="icon">
-                <i class="fab fa-linkedin"></i>
-            </a>
-            <!-- GitHub -->
-            <a href="https://github.com/RamGoenka" target="_blank" class="icon">
-                <i class="fab fa-github"></i>
-            </a>
-            <!-- Email -->
-            <!-- Other social links -->
-            <a href="mailto:rgoenka2@illinois.edu" target="_blank" class="icon">
-                <i class="fas fa-envelope"></i>
-            </a>
+
+    <div class="container">
+        <div class="profile-section">
+            <div class="profile-info">
+                <h1>Ram Goenka</h1>
+                <div class="profile-details">
+                    <p><i class="fas fa-map-marker-alt"></i> Pittsburgh, PA, USA</p>
+                    <p><i class="fas fa-university"></i> University of Pittsburgh</p>
+                </div>
+                <div class="social-links">
+                    <a href="mailto:rag334@pitt.edu"><i class="fas fa-envelope"></i></a>
+                    <a href="https://github.com/ramgoenka" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/ram-goenka/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
         </div>
-    </section>
-    <script src="script.js"></script>
+
+        <div class="about-section">
+            <h2 class="section-title">About me</h2>
+            <p class="about-text">
+                Hi! My name is Ram Goenka and I am a (incoming) first year masters student at the University of Pittsburgh in the Department of Statistics.
+            </p>
+            <p class="about-text">
+                Prior to joining Pitt, I was an undergraduate student in Mathematics and Statistics at the University of Illinois (UIUC). I worked as a research assistant at the National Center for Supercomputing Applications on computational problems relating to the mathematical and statistical modeling of vector-borne diseases, specifically the West Nile Virus (WNV), mentored by Professor <a href="https://sib.illinois.edu/directory/profile/rlsdvm" target="_blank">Rebecca Lee Smith</a>.
+            </p>
+            <p class="about-text">
+                My research interests lie at the intersection of statistics, probability and theoretical ECE. I am primarily interested in statistical learning and random processes as well as their intersections with inference problems in signal processing, detection and communication theory. 
+            </p>
+            <p class="about-text">
+                My CV can be found <a href="Ram_Goenka_CV.pdf" class="cv-link" target="_blank">here</a> (Last Updated: May 29, 2025).
+            </p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('theme-toggle').addEventListener('click', function() {
+            document.body.classList.toggle('light-mode');
+            var themeToggleText = document.body.classList.contains('light-mode') ? '🌞' : '🌜';
+            document.getElementById('theme-toggle').textContent = themeToggleText;
+        });
+    </script>
 </body>
 </html>
-
